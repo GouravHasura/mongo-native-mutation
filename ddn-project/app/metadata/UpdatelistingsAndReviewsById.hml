@@ -1,0 +1,157 @@
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdatelistingsAndReviews
+  fields:
+    - name: n
+      type: Int!
+    - name: ok
+      type: Int!
+  graphql:
+    typeName: UpdatelistingsAndReviews
+    inputTypeName: UpdatelistingsAndReviewsInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: mongo
+      dataConnectorObjectType: UpdatelistingsAndReviews
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdatelistingsAndReviews
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - n
+          - ok
+
+---
+kind: Command
+version: v1
+definition:
+  name: UpdatelistingsAndReviewsById
+  outputType: UpdatelistingsAndReviews!
+  arguments:
+    - name: access
+      type: String
+    - name: accommodates
+      type: Int
+    - name: bathrooms
+      type: Decimal
+    - name: bedType
+      type: String
+    - name: bedrooms
+      type: Int
+    - name: beds
+      type: Int
+    - name: calendarLastScraped
+      type: Date
+    - name: cancellationPolicy
+      type: String
+    - name: cleaningFee
+      type: Decimal
+    - name: description
+      type: String
+    - name: extraPeople
+      type: Decimal
+    - name: firstReview
+      type: Date
+    - name: guestsIncluded
+      type: Decimal
+    - name: houseRules
+      type: String
+    - name: id
+      type: ObjectId!
+    - name: interaction
+      type: String
+    - name: lastReview
+      type: Date
+    - name: lastScraped
+      type: Date
+    - name: listingUrl
+      type: String
+    - name: maximumNights
+      type: String
+    - name: minimumNights
+      type: String
+    - name: monthlyPrice
+      type: Decimal
+    - name: name
+      type: String
+    - name: neighborhoodOverview
+      type: String
+    - name: notes
+      type: String
+    - name: numberOfReviews
+      type: Int
+    - name: price
+      type: Decimal
+    - name: propertyType
+      type: String
+    - name: roomType
+      type: String
+    - name: securityDeposit
+      type: Decimal
+    - name: space
+      type: String
+    - name: summary
+      type: String
+    - name: transit
+      type: String
+    - name: weeklyPrice
+      type: Decimal
+  source:
+    dataConnectorName: mongo
+    dataConnectorCommand:
+      procedure: updatelistingsAndReviewsById
+    argumentMapping:
+      access: access
+      accommodates: accommodates
+      bathrooms: bathrooms
+      bedType: bed_type
+      bedrooms: bedrooms
+      beds: beds
+      calendarLastScraped: calendar_last_scraped
+      cancellationPolicy: cancellation_policy
+      cleaningFee: cleaning_fee
+      description: description
+      extraPeople: extra_people
+      firstReview: first_review
+      guestsIncluded: guests_included
+      houseRules: house_rules
+      id: id
+      interaction: interaction
+      lastReview: last_review
+      lastScraped: last_scraped
+      listingUrl: listing_url
+      maximumNights: maximum_nights
+      minimumNights: minimum_nights
+      monthlyPrice: monthly_price
+      name: name
+      neighborhoodOverview: neighborhood_overview
+      notes: notes
+      numberOfReviews: number_of_reviews
+      price: price
+      propertyType: property_type
+      roomType: room_type
+      securityDeposit: security_deposit
+      space: space
+      summary: summary
+      transit: transit
+      weeklyPrice: weekly_price
+  graphql:
+    rootFieldName: updatelistingsAndReviewsById
+    rootFieldKind: Mutation
+  description: Update a listingsAndReviews document by ID
+
+---
+kind: CommandPermissions
+version: v1
+definition:
+  commandName: UpdatelistingsAndReviewsById
+  permissions:
+    - role: admin
+      allowExecution: true
+

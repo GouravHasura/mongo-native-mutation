@@ -1,0 +1,41 @@
+{
+  "name": "deletelistingsAndReviewsById",
+  "description": "Delete a listingsAndReviews document by ID",
+  "resultType": {
+    "object": "DeletelistingsAndReviews"
+  },
+  "arguments": {
+    "id": {
+      "type": {
+        "scalar": "objectId"
+      }
+    }
+  },
+  "objectTypes": {
+    "DeletelistingsAndReviews": {
+      "fields": {
+        "ok": {
+          "type": {
+            "scalar": "int"
+          }
+        },
+        "n": {
+          "type": {
+            "scalar": "int"
+          }
+        }
+      }
+    }
+  },
+  "command": {
+    "delete": "listingsAndReviews",
+    "deletes": [
+      {
+        "q": {
+          "_id": "{{ id }}"
+        },
+        "limit": 0
+      }
+    ]
+  }
+}

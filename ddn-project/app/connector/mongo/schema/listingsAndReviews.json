@@ -1,0 +1,671 @@
+{
+  "name": "listingsAndReviews",
+  "collections": {
+    "listingsAndReviews": {
+      "type": "listingsAndReviews"
+    }
+  },
+  "objectTypes": {
+    "listingsAndReviews": {
+      "fields": {
+        "_id": {
+          "type": {
+            "scalar": "string"
+          }
+        },
+        "access": {
+          "type": {
+            "nullable": {
+              "scalar": "string"
+            }
+          }
+        },
+        "accommodates": {
+          "type": {
+            "nullable": {
+              "scalar": "int"
+            }
+          }
+        },
+        "address": {
+          "type": {
+            "nullable": {
+              "object": "listingsAndReviews_address"
+            }
+          }
+        },
+        "amenities": {
+          "type": {
+            "nullable": {
+              "arrayOf": {
+                "scalar": "string"
+              }
+            }
+          }
+        },
+        "availability": {
+          "type": {
+            "nullable": {
+              "object": "listingsAndReviews_availability"
+            }
+          }
+        },
+        "bathrooms": {
+          "type": {
+            "nullable": {
+              "scalar": "decimal"
+            }
+          }
+        },
+        "bed_type": {
+          "type": {
+            "nullable": {
+              "scalar": "string"
+            }
+          }
+        },
+        "bedrooms": {
+          "type": {
+            "nullable": {
+              "scalar": "int"
+            }
+          }
+        },
+        "beds": {
+          "type": {
+            "nullable": {
+              "scalar": "int"
+            }
+          }
+        },
+        "calendar_last_scraped": {
+          "type": {
+            "nullable": {
+              "scalar": "date"
+            }
+          }
+        },
+        "cancellation_policy": {
+          "type": {
+            "nullable": {
+              "scalar": "string"
+            }
+          }
+        },
+        "cleaning_fee": {
+          "type": {
+            "nullable": {
+              "scalar": "decimal"
+            }
+          }
+        },
+        "description": {
+          "type": {
+            "nullable": {
+              "scalar": "string"
+            }
+          }
+        },
+        "extra_people": {
+          "type": {
+            "nullable": {
+              "scalar": "decimal"
+            }
+          }
+        },
+        "first_review": {
+          "type": {
+            "nullable": {
+              "scalar": "date"
+            }
+          }
+        },
+        "guests_included": {
+          "type": {
+            "nullable": {
+              "scalar": "decimal"
+            }
+          }
+        },
+        "host": {
+          "type": {
+            "nullable": {
+              "object": "listingsAndReviews_host"
+            }
+          }
+        },
+        "house_rules": {
+          "type": {
+            "nullable": {
+              "scalar": "string"
+            }
+          }
+        },
+        "images": {
+          "type": {
+            "nullable": {
+              "object": "listingsAndReviews_images"
+            }
+          }
+        },
+        "interaction": {
+          "type": {
+            "nullable": {
+              "scalar": "string"
+            }
+          }
+        },
+        "last_review": {
+          "type": {
+            "nullable": {
+              "scalar": "date"
+            }
+          }
+        },
+        "last_scraped": {
+          "type": {
+            "nullable": {
+              "scalar": "date"
+            }
+          }
+        },
+        "listing_url": {
+          "type": {
+            "nullable": {
+              "scalar": "string"
+            }
+          }
+        },
+        "maximum_nights": {
+          "type": {
+            "nullable": {
+              "scalar": "string"
+            }
+          }
+        },
+        "minimum_nights": {
+          "type": {
+            "nullable": {
+              "scalar": "string"
+            }
+          }
+        },
+        "monthly_price": {
+          "type": {
+            "nullable": {
+              "scalar": "decimal"
+            }
+          }
+        },
+        "name": {
+          "type": {
+            "nullable": {
+              "scalar": "string"
+            }
+          }
+        },
+        "neighborhood_overview": {
+          "type": {
+            "nullable": {
+              "scalar": "string"
+            }
+          }
+        },
+        "notes": {
+          "type": {
+            "nullable": {
+              "scalar": "string"
+            }
+          }
+        },
+        "number_of_reviews": {
+          "type": {
+            "nullable": {
+              "scalar": "int"
+            }
+          }
+        },
+        "price": {
+          "type": {
+            "nullable": {
+              "scalar": "decimal"
+            }
+          }
+        },
+        "property_type": {
+          "type": {
+            "nullable": {
+              "scalar": "string"
+            }
+          }
+        },
+        "review_scores": {
+          "type": {
+            "nullable": {
+              "object": "listingsAndReviews_review_scores"
+            }
+          }
+        },
+        "reviews": {
+          "type": {
+            "nullable": {
+              "arrayOf": {
+                "object": "listingsAndReviews_reviews"
+              }
+            }
+          }
+        },
+        "reviews_per_month": {
+          "type": {
+            "nullable": {
+              "scalar": "int"
+            }
+          }
+        },
+        "room_type": {
+          "type": {
+            "nullable": {
+              "scalar": "string"
+            }
+          }
+        },
+        "security_deposit": {
+          "type": {
+            "nullable": {
+              "scalar": "decimal"
+            }
+          }
+        },
+        "space": {
+          "type": {
+            "nullable": {
+              "scalar": "string"
+            }
+          }
+        },
+        "summary": {
+          "type": {
+            "nullable": {
+              "scalar": "string"
+            }
+          }
+        },
+        "transit": {
+          "type": {
+            "nullable": {
+              "scalar": "string"
+            }
+          }
+        },
+        "weekly_price": {
+          "type": {
+            "nullable": {
+              "scalar": "decimal"
+            }
+          }
+        }
+      }
+    },
+    "listingsAndReviews_address": {
+      "fields": {
+        "country": {
+          "type": {
+            "nullable": {
+              "scalar": "string"
+            }
+          }
+        },
+        "country_code": {
+          "type": {
+            "nullable": {
+              "scalar": "string"
+            }
+          }
+        },
+        "government_area": {
+          "type": {
+            "nullable": {
+              "scalar": "string"
+            }
+          }
+        },
+        "location": {
+          "type": {
+            "nullable": {
+              "object": "listingsAndReviews_address_location"
+            }
+          }
+        },
+        "market": {
+          "type": {
+            "nullable": {
+              "scalar": "string"
+            }
+          }
+        },
+        "street": {
+          "type": {
+            "nullable": {
+              "scalar": "string"
+            }
+          }
+        },
+        "suburb": {
+          "type": {
+            "nullable": {
+              "scalar": "string"
+            }
+          }
+        }
+      }
+    },
+    "listingsAndReviews_address_location": {
+      "fields": {
+        "coordinates": {
+          "type": {
+            "nullable": {
+              "arrayOf": {
+                "scalar": "double"
+              }
+            }
+          }
+        },
+        "is_location_exact": {
+          "type": {
+            "nullable": {
+              "scalar": "bool"
+            }
+          }
+        },
+        "type": {
+          "type": {
+            "nullable": {
+              "scalar": "string"
+            }
+          }
+        }
+      }
+    },
+    "listingsAndReviews_availability": {
+      "fields": {
+        "availability_30": {
+          "type": {
+            "nullable": {
+              "scalar": "int"
+            }
+          }
+        },
+        "availability_365": {
+          "type": {
+            "nullable": {
+              "scalar": "int"
+            }
+          }
+        },
+        "availability_60": {
+          "type": {
+            "nullable": {
+              "scalar": "int"
+            }
+          }
+        },
+        "availability_90": {
+          "type": {
+            "nullable": {
+              "scalar": "int"
+            }
+          }
+        }
+      }
+    },
+    "listingsAndReviews_host": {
+      "fields": {
+        "host_about": {
+          "type": {
+            "nullable": {
+              "scalar": "string"
+            }
+          }
+        },
+        "host_has_profile_pic": {
+          "type": {
+            "nullable": {
+              "scalar": "bool"
+            }
+          }
+        },
+        "host_id": {
+          "type": {
+            "nullable": {
+              "scalar": "string"
+            }
+          }
+        },
+        "host_identity_verified": {
+          "type": {
+            "nullable": {
+              "scalar": "bool"
+            }
+          }
+        },
+        "host_is_superhost": {
+          "type": {
+            "nullable": {
+              "scalar": "bool"
+            }
+          }
+        },
+        "host_listings_count": {
+          "type": {
+            "nullable": {
+              "scalar": "int"
+            }
+          }
+        },
+        "host_location": {
+          "type": {
+            "nullable": {
+              "scalar": "string"
+            }
+          }
+        },
+        "host_name": {
+          "type": {
+            "nullable": {
+              "scalar": "string"
+            }
+          }
+        },
+        "host_neighbourhood": {
+          "type": {
+            "nullable": {
+              "scalar": "string"
+            }
+          }
+        },
+        "host_picture_url": {
+          "type": {
+            "nullable": {
+              "scalar": "string"
+            }
+          }
+        },
+        "host_response_rate": {
+          "type": {
+            "nullable": {
+              "scalar": "int"
+            }
+          }
+        },
+        "host_response_time": {
+          "type": {
+            "nullable": {
+              "scalar": "string"
+            }
+          }
+        },
+        "host_thumbnail_url": {
+          "type": {
+            "nullable": {
+              "scalar": "string"
+            }
+          }
+        },
+        "host_total_listings_count": {
+          "type": {
+            "nullable": {
+              "scalar": "int"
+            }
+          }
+        },
+        "host_url": {
+          "type": {
+            "nullable": {
+              "scalar": "string"
+            }
+          }
+        },
+        "host_verifications": {
+          "type": {
+            "nullable": {
+              "arrayOf": {
+                "scalar": "string"
+              }
+            }
+          }
+        }
+      }
+    },
+    "listingsAndReviews_images": {
+      "fields": {
+        "medium_url": {
+          "type": {
+            "nullable": {
+              "scalar": "string"
+            }
+          }
+        },
+        "picture_url": {
+          "type": {
+            "nullable": {
+              "scalar": "string"
+            }
+          }
+        },
+        "thumbnail_url": {
+          "type": {
+            "nullable": {
+              "scalar": "string"
+            }
+          }
+        },
+        "xl_picture_url": {
+          "type": {
+            "nullable": {
+              "scalar": "string"
+            }
+          }
+        }
+      }
+    },
+    "listingsAndReviews_review_scores": {
+      "fields": {
+        "review_scores_accuracy": {
+          "type": {
+            "nullable": {
+              "scalar": "int"
+            }
+          }
+        },
+        "review_scores_checkin": {
+          "type": {
+            "nullable": {
+              "scalar": "int"
+            }
+          }
+        },
+        "review_scores_cleanliness": {
+          "type": {
+            "nullable": {
+              "scalar": "int"
+            }
+          }
+        },
+        "review_scores_communication": {
+          "type": {
+            "nullable": {
+              "scalar": "int"
+            }
+          }
+        },
+        "review_scores_location": {
+          "type": {
+            "nullable": {
+              "scalar": "int"
+            }
+          }
+        },
+        "review_scores_rating": {
+          "type": {
+            "nullable": {
+              "scalar": "int"
+            }
+          }
+        },
+        "review_scores_value": {
+          "type": {
+            "nullable": {
+              "scalar": "int"
+            }
+          }
+        }
+      }
+    },
+    "listingsAndReviews_reviews": {
+      "fields": {
+        "_id": {
+          "type": {
+            "nullable": {
+              "scalar": "string"
+            }
+          }
+        },
+        "comments": {
+          "type": {
+            "nullable": {
+              "scalar": "string"
+            }
+          }
+        },
+        "date": {
+          "type": {
+            "nullable": {
+              "scalar": "date"
+            }
+          }
+        },
+        "listing_id": {
+          "type": {
+            "nullable": {
+              "scalar": "string"
+            }
+          }
+        },
+        "reviewer_id": {
+          "type": {
+            "nullable": {
+              "scalar": "string"
+            }
+          }
+        },
+        "reviewer_name": {
+          "type": {
+            "nullable": {
+              "scalar": "string"
+            }
+          }
+        }
+      }
+    }
+  }
+}

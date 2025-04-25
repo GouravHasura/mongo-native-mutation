@@ -1,0 +1,1889 @@
+kind: DataConnectorLink
+version: v1
+definition:
+  name: mongo
+  url:
+    readWriteUrls:
+      read:
+        valueFromEnv: APP_MONGO_READ_URL
+      write:
+        valueFromEnv: APP_MONGO_WRITE_URL
+  headers:
+    Authorization:
+      valueFromEnv: APP_MONGO_AUTHORIZATION_HEADER
+  schema:
+    version: v0.1
+    schema:
+      scalar_types:
+        BinData:
+          aggregate_functions:
+            count:
+              result_type:
+                type: named
+                name: Int
+          comparison_operators:
+            _eq:
+              type: equal
+            _in:
+              type: in
+            _neq:
+              type: custom
+              argument_type:
+                type: named
+                name: BinData
+            _nin:
+              type: custom
+              argument_type:
+                type: array
+                element_type:
+                  type: named
+                  name: BinData
+        Bool:
+          representation:
+            type: boolean
+          aggregate_functions:
+            count:
+              result_type:
+                type: named
+                name: Int
+          comparison_operators:
+            _eq:
+              type: equal
+            _in:
+              type: in
+            _neq:
+              type: custom
+              argument_type:
+                type: named
+                name: Bool
+            _nin:
+              type: custom
+              argument_type:
+                type: array
+                element_type:
+                  type: named
+                  name: Bool
+        Date:
+          representation:
+            type: timestamp
+          aggregate_functions:
+            count:
+              result_type:
+                type: named
+                name: Int
+            max:
+              result_type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: Date
+            min:
+              result_type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: Date
+          comparison_operators:
+            _eq:
+              type: equal
+            _gt:
+              type: custom
+              argument_type:
+                type: named
+                name: Date
+            _gte:
+              type: custom
+              argument_type:
+                type: named
+                name: Date
+            _in:
+              type: in
+            _lt:
+              type: custom
+              argument_type:
+                type: named
+                name: Date
+            _lte:
+              type: custom
+              argument_type:
+                type: named
+                name: Date
+            _neq:
+              type: custom
+              argument_type:
+                type: named
+                name: Date
+            _nin:
+              type: custom
+              argument_type:
+                type: array
+                element_type:
+                  type: named
+                  name: Date
+        DbPointer:
+          aggregate_functions:
+            count:
+              result_type:
+                type: named
+                name: Int
+          comparison_operators:
+            _eq:
+              type: equal
+            _in:
+              type: in
+            _neq:
+              type: custom
+              argument_type:
+                type: named
+                name: DbPointer
+            _nin:
+              type: custom
+              argument_type:
+                type: array
+                element_type:
+                  type: named
+                  name: DbPointer
+        Decimal:
+          representation:
+            type: bigdecimal
+          aggregate_functions:
+            avg:
+              result_type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: Decimal
+            count:
+              result_type:
+                type: named
+                name: Int
+            max:
+              result_type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: Decimal
+            min:
+              result_type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: Decimal
+            sum:
+              result_type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: Decimal
+          comparison_operators:
+            _eq:
+              type: equal
+            _gt:
+              type: custom
+              argument_type:
+                type: named
+                name: Decimal
+            _gte:
+              type: custom
+              argument_type:
+                type: named
+                name: Decimal
+            _in:
+              type: in
+            _lt:
+              type: custom
+              argument_type:
+                type: named
+                name: Decimal
+            _lte:
+              type: custom
+              argument_type:
+                type: named
+                name: Decimal
+            _neq:
+              type: custom
+              argument_type:
+                type: named
+                name: Decimal
+            _nin:
+              type: custom
+              argument_type:
+                type: array
+                element_type:
+                  type: named
+                  name: Decimal
+        Double:
+          representation:
+            type: float64
+          aggregate_functions:
+            avg:
+              result_type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: Double
+            count:
+              result_type:
+                type: named
+                name: Int
+            max:
+              result_type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: Double
+            min:
+              result_type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: Double
+            sum:
+              result_type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: Double
+          comparison_operators:
+            _eq:
+              type: equal
+            _gt:
+              type: custom
+              argument_type:
+                type: named
+                name: Double
+            _gte:
+              type: custom
+              argument_type:
+                type: named
+                name: Double
+            _in:
+              type: in
+            _lt:
+              type: custom
+              argument_type:
+                type: named
+                name: Double
+            _lte:
+              type: custom
+              argument_type:
+                type: named
+                name: Double
+            _neq:
+              type: custom
+              argument_type:
+                type: named
+                name: Double
+            _nin:
+              type: custom
+              argument_type:
+                type: array
+                element_type:
+                  type: named
+                  name: Double
+        ExtendedJSON:
+          representation:
+            type: json
+          aggregate_functions:
+            avg:
+              result_type:
+                type: named
+                name: ExtendedJSON
+            count:
+              result_type:
+                type: named
+                name: Int
+            max:
+              result_type:
+                type: named
+                name: ExtendedJSON
+            min:
+              result_type:
+                type: named
+                name: ExtendedJSON
+            sum:
+              result_type:
+                type: named
+                name: ExtendedJSON
+          comparison_operators:
+            _eq:
+              type: equal
+            _gt:
+              type: custom
+              argument_type:
+                type: named
+                name: ExtendedJSON
+            _gte:
+              type: custom
+              argument_type:
+                type: named
+                name: ExtendedJSON
+            _in:
+              type: custom
+              argument_type:
+                type: named
+                name: ExtendedJSON
+            _iregex:
+              type: custom
+              argument_type:
+                type: named
+                name: String
+            _lt:
+              type: custom
+              argument_type:
+                type: named
+                name: ExtendedJSON
+            _lte:
+              type: custom
+              argument_type:
+                type: named
+                name: ExtendedJSON
+            _neq:
+              type: custom
+              argument_type:
+                type: named
+                name: ExtendedJSON
+            _nin:
+              type: custom
+              argument_type:
+                type: named
+                name: ExtendedJSON
+            _regex:
+              type: custom
+              argument_type:
+                type: named
+                name: String
+        Int:
+          representation:
+            type: int32
+          aggregate_functions:
+            avg:
+              result_type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: Int
+            count:
+              result_type:
+                type: named
+                name: Int
+            max:
+              result_type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: Int
+            min:
+              result_type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: Int
+            sum:
+              result_type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: Int
+          comparison_operators:
+            _eq:
+              type: equal
+            _gt:
+              type: custom
+              argument_type:
+                type: named
+                name: Int
+            _gte:
+              type: custom
+              argument_type:
+                type: named
+                name: Int
+            _in:
+              type: in
+            _lt:
+              type: custom
+              argument_type:
+                type: named
+                name: Int
+            _lte:
+              type: custom
+              argument_type:
+                type: named
+                name: Int
+            _neq:
+              type: custom
+              argument_type:
+                type: named
+                name: Int
+            _nin:
+              type: custom
+              argument_type:
+                type: array
+                element_type:
+                  type: named
+                  name: Int
+        Javascript:
+          aggregate_functions:
+            count:
+              result_type:
+                type: named
+                name: Int
+          comparison_operators: {}
+        JavascriptWithScope:
+          aggregate_functions:
+            count:
+              result_type:
+                type: named
+                name: Int
+          comparison_operators: {}
+        Long:
+          representation:
+            type: int64
+          aggregate_functions:
+            avg:
+              result_type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: Long
+            count:
+              result_type:
+                type: named
+                name: Int
+            max:
+              result_type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: Long
+            min:
+              result_type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: Long
+            sum:
+              result_type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: Long
+          comparison_operators:
+            _eq:
+              type: equal
+            _gt:
+              type: custom
+              argument_type:
+                type: named
+                name: Long
+            _gte:
+              type: custom
+              argument_type:
+                type: named
+                name: Long
+            _in:
+              type: in
+            _lt:
+              type: custom
+              argument_type:
+                type: named
+                name: Long
+            _lte:
+              type: custom
+              argument_type:
+                type: named
+                name: Long
+            _neq:
+              type: custom
+              argument_type:
+                type: named
+                name: Long
+            _nin:
+              type: custom
+              argument_type:
+                type: array
+                element_type:
+                  type: named
+                  name: Long
+        MaxKey:
+          aggregate_functions:
+            count:
+              result_type:
+                type: named
+                name: Int
+          comparison_operators:
+            _eq:
+              type: equal
+            _in:
+              type: in
+            _neq:
+              type: custom
+              argument_type:
+                type: named
+                name: MaxKey
+            _nin:
+              type: custom
+              argument_type:
+                type: array
+                element_type:
+                  type: named
+                  name: MaxKey
+        MinKey:
+          aggregate_functions:
+            count:
+              result_type:
+                type: named
+                name: Int
+          comparison_operators:
+            _eq:
+              type: equal
+            _in:
+              type: in
+            _neq:
+              type: custom
+              argument_type:
+                type: named
+                name: MinKey
+            _nin:
+              type: custom
+              argument_type:
+                type: array
+                element_type:
+                  type: named
+                  name: MinKey
+        "Null":
+          aggregate_functions:
+            count:
+              result_type:
+                type: named
+                name: Int
+          comparison_operators:
+            _eq:
+              type: equal
+            _in:
+              type: in
+            _neq:
+              type: custom
+              argument_type:
+                type: named
+                name: "Null"
+            _nin:
+              type: custom
+              argument_type:
+                type: array
+                element_type:
+                  type: named
+                  name: "Null"
+        ObjectId:
+          representation:
+            type: string
+          aggregate_functions:
+            count:
+              result_type:
+                type: named
+                name: Int
+          comparison_operators:
+            _eq:
+              type: equal
+            _in:
+              type: in
+            _neq:
+              type: custom
+              argument_type:
+                type: named
+                name: ObjectId
+            _nin:
+              type: custom
+              argument_type:
+                type: array
+                element_type:
+                  type: named
+                  name: ObjectId
+        Regex:
+          aggregate_functions:
+            count:
+              result_type:
+                type: named
+                name: Int
+          comparison_operators: {}
+        String:
+          representation:
+            type: string
+          aggregate_functions:
+            count:
+              result_type:
+                type: named
+                name: Int
+            max:
+              result_type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: String
+            min:
+              result_type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: String
+          comparison_operators:
+            _eq:
+              type: equal
+            _gt:
+              type: custom
+              argument_type:
+                type: named
+                name: String
+            _gte:
+              type: custom
+              argument_type:
+                type: named
+                name: String
+            _in:
+              type: in
+            _iregex:
+              type: custom
+              argument_type:
+                type: named
+                name: String
+            _lt:
+              type: custom
+              argument_type:
+                type: named
+                name: String
+            _lte:
+              type: custom
+              argument_type:
+                type: named
+                name: String
+            _neq:
+              type: custom
+              argument_type:
+                type: named
+                name: String
+            _nin:
+              type: custom
+              argument_type:
+                type: array
+                element_type:
+                  type: named
+                  name: String
+            _regex:
+              type: custom
+              argument_type:
+                type: named
+                name: String
+        Symbol:
+          aggregate_functions:
+            count:
+              result_type:
+                type: named
+                name: Int
+          comparison_operators:
+            _eq:
+              type: equal
+            _in:
+              type: in
+            _neq:
+              type: custom
+              argument_type:
+                type: named
+                name: Symbol
+            _nin:
+              type: custom
+              argument_type:
+                type: array
+                element_type:
+                  type: named
+                  name: Symbol
+        Timestamp:
+          aggregate_functions:
+            count:
+              result_type:
+                type: named
+                name: Int
+            max:
+              result_type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: Timestamp
+            min:
+              result_type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: Timestamp
+          comparison_operators:
+            _eq:
+              type: equal
+            _gt:
+              type: custom
+              argument_type:
+                type: named
+                name: Timestamp
+            _gte:
+              type: custom
+              argument_type:
+                type: named
+                name: Timestamp
+            _in:
+              type: in
+            _lt:
+              type: custom
+              argument_type:
+                type: named
+                name: Timestamp
+            _lte:
+              type: custom
+              argument_type:
+                type: named
+                name: Timestamp
+            _neq:
+              type: custom
+              argument_type:
+                type: named
+                name: Timestamp
+            _nin:
+              type: custom
+              argument_type:
+                type: array
+                element_type:
+                  type: named
+                  name: Timestamp
+        UUID:
+          representation:
+            type: string
+          aggregate_functions:
+            count:
+              result_type:
+                type: named
+                name: Int
+          comparison_operators:
+            _eq:
+              type: equal
+            _in:
+              type: in
+            _neq:
+              type: custom
+              argument_type:
+                type: named
+                name: UUID
+            _nin:
+              type: custom
+              argument_type:
+                type: array
+                element_type:
+                  type: named
+                  name: UUID
+        Undefined:
+          aggregate_functions:
+            count:
+              result_type:
+                type: named
+                name: Int
+          comparison_operators:
+            _eq:
+              type: equal
+            _in:
+              type: in
+            _neq:
+              type: custom
+              argument_type:
+                type: named
+                name: Undefined
+            _nin:
+              type: custom
+              argument_type:
+                type: array
+                element_type:
+                  type: named
+                  name: Undefined
+      object_types:
+        DeleteUsers:
+          fields:
+            "n":
+              type:
+                type: named
+                name: Int
+            ok:
+              type:
+                type: named
+                name: Int
+        DeletelistingsAndReviews:
+          fields:
+            "n":
+              type:
+                type: named
+                name: Int
+            ok:
+              type:
+                type: named
+                name: Int
+        InsertUsers:
+          fields:
+            "n":
+              type:
+                type: named
+                name: Int
+            ok:
+              type:
+                type: named
+                name: Int
+        InsertlistingsAndReviews:
+          fields:
+            "n":
+              type:
+                type: named
+                name: Int
+            ok:
+              type:
+                type: named
+                name: Int
+        UpdateUsers:
+          fields:
+            "n":
+              type:
+                type: named
+                name: Int
+            ok:
+              type:
+                type: named
+                name: Int
+        UpdatelistingsAndReviews:
+          fields:
+            "n":
+              type:
+                type: named
+                name: Int
+            ok:
+              type:
+                type: named
+                name: Int
+        Users:
+          fields:
+            _id:
+              type:
+                type: named
+                name: ObjectId
+            Email:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: String
+            Name:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: String
+            UserId:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: Int
+        listingsAndReviews:
+          fields:
+            _id:
+              type:
+                type: named
+                name: String
+            access:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: String
+            accommodates:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: Int
+            address:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: listingsAndReviews_address
+            amenities:
+              type:
+                type: nullable
+                underlying_type:
+                  type: array
+                  element_type:
+                    type: named
+                    name: String
+            availability:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: listingsAndReviews_availability
+            bathrooms:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: Decimal
+            bed_type:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: String
+            bedrooms:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: Int
+            beds:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: Int
+            calendar_last_scraped:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: Date
+            cancellation_policy:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: String
+            cleaning_fee:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: Decimal
+            description:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: String
+            extra_people:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: Decimal
+            first_review:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: Date
+            guests_included:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: Decimal
+            host:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: listingsAndReviews_host
+            house_rules:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: String
+            images:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: listingsAndReviews_images
+            interaction:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: String
+            last_review:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: Date
+            last_scraped:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: Date
+            listing_url:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: String
+            maximum_nights:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: String
+            minimum_nights:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: String
+            monthly_price:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: Decimal
+            name:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: String
+            neighborhood_overview:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: String
+            notes:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: String
+            number_of_reviews:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: Int
+            price:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: Decimal
+            property_type:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: String
+            review_scores:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: listingsAndReviews_review_scores
+            reviews:
+              type:
+                type: nullable
+                underlying_type:
+                  type: array
+                  element_type:
+                    type: named
+                    name: listingsAndReviews_reviews
+            reviews_per_month:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: Int
+            room_type:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: String
+            security_deposit:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: Decimal
+            space:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: String
+            summary:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: String
+            transit:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: String
+            weekly_price:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: Decimal
+        listingsAndReviews_address:
+          fields:
+            country:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: String
+            country_code:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: String
+            government_area:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: String
+            location:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: listingsAndReviews_address_location
+            market:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: String
+            street:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: String
+            suburb:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: String
+        listingsAndReviews_address_location:
+          fields:
+            coordinates:
+              type:
+                type: nullable
+                underlying_type:
+                  type: array
+                  element_type:
+                    type: named
+                    name: Double
+            is_location_exact:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: Bool
+            type:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: String
+        listingsAndReviews_availability:
+          fields:
+            availability_30:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: Int
+            availability_60:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: Int
+            availability_90:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: Int
+            availability_365:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: Int
+        listingsAndReviews_host:
+          fields:
+            host_about:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: String
+            host_has_profile_pic:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: Bool
+            host_id:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: String
+            host_identity_verified:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: Bool
+            host_is_superhost:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: Bool
+            host_listings_count:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: Int
+            host_location:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: String
+            host_name:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: String
+            host_neighbourhood:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: String
+            host_picture_url:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: String
+            host_response_rate:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: Int
+            host_response_time:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: String
+            host_thumbnail_url:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: String
+            host_total_listings_count:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: Int
+            host_url:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: String
+            host_verifications:
+              type:
+                type: nullable
+                underlying_type:
+                  type: array
+                  element_type:
+                    type: named
+                    name: String
+        listingsAndReviews_images:
+          fields:
+            medium_url:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: String
+            picture_url:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: String
+            thumbnail_url:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: String
+            xl_picture_url:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: String
+        listingsAndReviews_review_scores:
+          fields:
+            review_scores_accuracy:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: Int
+            review_scores_checkin:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: Int
+            review_scores_cleanliness:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: Int
+            review_scores_communication:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: Int
+            review_scores_location:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: Int
+            review_scores_rating:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: Int
+            review_scores_value:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: Int
+        listingsAndReviews_reviews:
+          fields:
+            _id:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: String
+            comments:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: String
+            date:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: Date
+            listing_id:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: String
+            reviewer_id:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: String
+            reviewer_name:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: String
+      collections:
+        - name: Users
+          arguments: {}
+          type: Users
+          uniqueness_constraints:
+            Users_id:
+              unique_columns:
+                - _id
+          foreign_keys: {}
+        - name: listingsAndReviews
+          arguments: {}
+          type: listingsAndReviews
+          uniqueness_constraints:
+            listingsAndReviews_id:
+              unique_columns:
+                - _id
+          foreign_keys: {}
+      functions: []
+      procedures:
+        - name: deleteUsersById
+          description: Delete a Users document by ID
+          arguments:
+            id:
+              type:
+                type: named
+                name: ObjectId
+          result_type:
+            type: named
+            name: DeleteUsers
+        - name: deletelistingsAndReviewsById
+          description: Delete a listingsAndReviews document by ID
+          arguments:
+            id:
+              type:
+                type: named
+                name: ObjectId
+          result_type:
+            type: named
+            name: DeletelistingsAndReviews
+        - name: insertUsers
+          description: Insert a new Users document
+          arguments:
+            email:
+              type:
+                type: named
+                name: String
+            name:
+              type:
+                type: named
+                name: String
+            userId:
+              type:
+                type: named
+                name: Int
+          result_type:
+            type: named
+            name: InsertUsers
+        - name: insertlistingsAndReviews
+          description: Insert a new listingsAndReviews document
+          arguments:
+            access:
+              type:
+                type: named
+                name: String
+            accommodates:
+              type:
+                type: named
+                name: Int
+            bathrooms:
+              type:
+                type: named
+                name: Decimal
+            bed_type:
+              type:
+                type: named
+                name: String
+            bedrooms:
+              type:
+                type: named
+                name: Int
+            beds:
+              type:
+                type: named
+                name: Int
+            calendar_last_scraped:
+              type:
+                type: named
+                name: Date
+            cancellation_policy:
+              type:
+                type: named
+                name: String
+            cleaning_fee:
+              type:
+                type: named
+                name: Decimal
+            description:
+              type:
+                type: named
+                name: String
+            extra_people:
+              type:
+                type: named
+                name: Decimal
+            first_review:
+              type:
+                type: named
+                name: Date
+            guests_included:
+              type:
+                type: named
+                name: Decimal
+            house_rules:
+              type:
+                type: named
+                name: String
+            interaction:
+              type:
+                type: named
+                name: String
+            last_review:
+              type:
+                type: named
+                name: Date
+            last_scraped:
+              type:
+                type: named
+                name: Date
+            listing_url:
+              type:
+                type: named
+                name: String
+            maximum_nights:
+              type:
+                type: named
+                name: String
+            minimum_nights:
+              type:
+                type: named
+                name: String
+            monthly_price:
+              type:
+                type: named
+                name: Decimal
+            name:
+              type:
+                type: named
+                name: String
+            neighborhood_overview:
+              type:
+                type: named
+                name: String
+            notes:
+              type:
+                type: named
+                name: String
+            number_of_reviews:
+              type:
+                type: named
+                name: Int
+            price:
+              type:
+                type: named
+                name: Decimal
+            property_type:
+              type:
+                type: named
+                name: String
+            room_type:
+              type:
+                type: named
+                name: String
+            security_deposit:
+              type:
+                type: named
+                name: Decimal
+            space:
+              type:
+                type: named
+                name: String
+            summary:
+              type:
+                type: named
+                name: String
+            transit:
+              type:
+                type: named
+                name: String
+            weekly_price:
+              type:
+                type: named
+                name: Decimal
+          result_type:
+            type: named
+            name: InsertlistingsAndReviews
+        - name: updateUsersById
+          description: Update a Users document by ID
+          arguments:
+            email:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: String
+            id:
+              type:
+                type: named
+                name: ObjectId
+            name:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: String
+            userId:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: Int
+          result_type:
+            type: named
+            name: UpdateUsers
+        - name: updatelistingsAndReviewsById
+          description: Update a listingsAndReviews document by ID
+          arguments:
+            access:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: String
+            accommodates:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: Int
+            bathrooms:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: Decimal
+            bed_type:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: String
+            bedrooms:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: Int
+            beds:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: Int
+            calendar_last_scraped:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: Date
+            cancellation_policy:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: String
+            cleaning_fee:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: Decimal
+            description:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: String
+            extra_people:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: Decimal
+            first_review:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: Date
+            guests_included:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: Decimal
+            house_rules:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: String
+            id:
+              type:
+                type: named
+                name: ObjectId
+            interaction:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: String
+            last_review:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: Date
+            last_scraped:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: Date
+            listing_url:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: String
+            maximum_nights:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: String
+            minimum_nights:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: String
+            monthly_price:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: Decimal
+            name:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: String
+            neighborhood_overview:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: String
+            notes:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: String
+            number_of_reviews:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: Int
+            price:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: Decimal
+            property_type:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: String
+            room_type:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: String
+            security_deposit:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: Decimal
+            space:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: String
+            summary:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: String
+            transit:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: String
+            weekly_price:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: Decimal
+          result_type:
+            type: named
+            name: UpdatelistingsAndReviews
+    capabilities:
+      version: 0.1.6
+      capabilities:
+        query:
+          aggregates: {}
+          variables: {}
+          explain: {}
+          nested_fields:
+            filter_by: {}
+            order_by: {}
+            aggregates: {}
+          exists:
+            nested_collections: {}
+        mutation: {}
+        relationships:
+          relation_comparisons: {}

@@ -1,0 +1,40 @@
+{
+  "name": "Users",
+  "collections": {
+    "Users": {
+      "type": "Users"
+    }
+  },
+  "objectTypes": {
+    "Users": {
+      "fields": {
+        "Email": {
+          "type": {
+            "nullable": {
+              "scalar": "string"
+            }
+          }
+        },
+        "Name": {
+          "type": {
+            "nullable": {
+              "scalar": "string"
+            }
+          }
+        },
+        "UserId": {
+          "type": {
+            "nullable": {
+              "scalar": "int"
+            }
+          }
+        },
+        "_id": {
+          "type": {
+            "scalar": "objectId"
+          }
+        }
+      }
+    }
+  }
+}

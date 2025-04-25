@@ -1,0 +1,62 @@
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateUsers
+  fields:
+    - name: n
+      type: Int!
+    - name: ok
+      type: Int!
+  graphql:
+    typeName: UpdateUsers
+    inputTypeName: UpdateUsersInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: mongo
+      dataConnectorObjectType: UpdateUsers
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateUsers
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - n
+          - ok
+
+---
+kind: Command
+version: v1
+definition:
+  name: UpdateUsersById
+  outputType: UpdateUsers!
+  arguments:
+    - name: email
+      type: String
+    - name: id
+      type: ObjectId!
+    - name: name
+      type: String
+    - name: userId
+      type: Int
+  source:
+    dataConnectorName: mongo
+    dataConnectorCommand:
+      procedure: updateUsersById
+  graphql:
+    rootFieldName: updateUsersById
+    rootFieldKind: Mutation
+  description: Update a Users document by ID
+
+---
+kind: CommandPermissions
+version: v1
+definition:
+  commandName: UpdateUsersById
+  permissions:
+    - role: admin
+      allowExecution: true
+

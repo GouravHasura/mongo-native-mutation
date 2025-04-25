@@ -1,0 +1,56 @@
+---
+kind: ObjectType
+version: v1
+definition:
+  name: DeletelistingsAndReviews
+  fields:
+    - name: n
+      type: Int!
+    - name: ok
+      type: Int!
+  graphql:
+    typeName: DeletelistingsAndReviews
+    inputTypeName: DeletelistingsAndReviewsInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: mongo
+      dataConnectorObjectType: DeletelistingsAndReviews
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: DeletelistingsAndReviews
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - n
+          - ok
+
+---
+kind: Command
+version: v1
+definition:
+  name: DeletelistingsAndReviewsById
+  outputType: DeletelistingsAndReviews!
+  arguments:
+    - name: id
+      type: ObjectId!
+  source:
+    dataConnectorName: mongo
+    dataConnectorCommand:
+      procedure: deletelistingsAndReviewsById
+  graphql:
+    rootFieldName: deletelistingsAndReviewsById
+    rootFieldKind: Mutation
+  description: Delete a listingsAndReviews document by ID
+
+---
+kind: CommandPermissions
+version: v1
+definition:
+  commandName: DeletelistingsAndReviewsById
+  permissions:
+    - role: admin
+      allowExecution: true
+

@@ -1,0 +1,56 @@
+---
+kind: ObjectType
+version: v1
+definition:
+  name: DeleteUsers
+  fields:
+    - name: n
+      type: Int!
+    - name: ok
+      type: Int!
+  graphql:
+    typeName: DeleteUsers
+    inputTypeName: DeleteUsersInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: mongo
+      dataConnectorObjectType: DeleteUsers
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: DeleteUsers
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - n
+          - ok
+
+---
+kind: Command
+version: v1
+definition:
+  name: DeleteUsersById
+  outputType: DeleteUsers!
+  arguments:
+    - name: id
+      type: ObjectId!
+  source:
+    dataConnectorName: mongo
+    dataConnectorCommand:
+      procedure: deleteUsersById
+  graphql:
+    rootFieldName: deleteUsersById
+    rootFieldKind: Mutation
+  description: Delete a Users document by ID
+
+---
+kind: CommandPermissions
+version: v1
+definition:
+  commandName: DeleteUsersById
+  permissions:
+    - role: admin
+      allowExecution: true
+

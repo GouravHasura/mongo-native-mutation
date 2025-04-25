@@ -1,0 +1,156 @@
+---
+kind: ObjectType
+version: v1
+definition:
+  name: Users
+  fields:
+    - name: id
+      type: ObjectId!
+    - name: email
+      type: String
+    - name: name
+      type: String
+    - name: userId
+      type: Int
+  graphql:
+    typeName: Users
+    inputTypeName: UsersInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: mongo
+      dataConnectorObjectType: Users
+      fieldMapping:
+        id:
+          column:
+            name: _id
+        email:
+          column:
+            name: Email
+        name:
+          column:
+            name: Name
+        userId:
+          column:
+            name: UserId
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: Users
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - id
+          - email
+          - name
+          - userId
+
+---
+kind: BooleanExpressionType
+version: v1
+definition:
+  name: UsersBoolExp
+  operand:
+    object:
+      type: Users
+      comparableFields:
+        - fieldName: id
+          booleanExpressionType: ObjectIdBoolExp
+        - fieldName: email
+          booleanExpressionType: StringBoolExp
+        - fieldName: name
+          booleanExpressionType: StringBoolExp
+        - fieldName: userId
+          booleanExpressionType: IntBoolExp
+      comparableRelationships: []
+  logicalOperators:
+    enable: true
+  isNull:
+    enable: true
+  graphql:
+    typeName: UsersBoolExp
+
+---
+kind: AggregateExpression
+version: v1
+definition:
+  name: UsersAggExp
+  operand:
+    object:
+      aggregatedType: Users
+      aggregatableFields:
+        - fieldName: id
+          aggregateExpression: ObjectIdAggExp
+        - fieldName: email
+          aggregateExpression: StringAggExp
+        - fieldName: name
+          aggregateExpression: StringAggExp
+        - fieldName: userId
+          aggregateExpression: IntAggExp
+  count:
+    enable: true
+  graphql:
+    selectTypeName: UsersAggExp
+
+---
+kind: OrderByExpression
+version: v1
+definition:
+  name: UsersOrderByExp
+  operand:
+    object:
+      orderedType: Users
+      orderableFields:
+        - fieldName: id
+          orderByExpression: ObjectIdOrderByExp
+        - fieldName: email
+          orderByExpression: StringOrderByExp
+        - fieldName: name
+          orderByExpression: StringOrderByExp
+        - fieldName: userId
+          orderByExpression: IntOrderByExp
+      orderableRelationships: []
+  graphql:
+    expressionTypeName: UsersOrderByExp
+
+---
+kind: Model
+version: v2
+definition:
+  name: Users
+  objectType: Users
+  source:
+    dataConnectorName: mongo
+    collection: Users
+  filterExpressionType: UsersBoolExp
+  aggregateExpression: UsersAggExp
+  orderByExpression: UsersOrderByExp
+  graphql:
+    selectMany:
+      queryRootField: users
+      subscription:
+        rootField: users
+    selectUniques:
+      - queryRootField: usersById
+        uniqueIdentifier:
+          - id
+        subscription:
+          rootField: usersById
+    filterInputTypeName: UsersFilterInput
+    aggregate:
+      queryRootField: usersAggregate
+      subscription:
+        rootField: usersAggregate
+
+---
+kind: ModelPermissions
+version: v1
+definition:
+  modelName: Users
+  permissions:
+    - role: admin
+      select:
+        filter: null
+        allowSubscriptions: true
+

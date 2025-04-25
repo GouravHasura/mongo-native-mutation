@@ -1,0 +1,60 @@
+---
+kind: ObjectType
+version: v1
+definition:
+  name: InsertUsers
+  fields:
+    - name: n
+      type: Int!
+    - name: ok
+      type: Int!
+  graphql:
+    typeName: InsertUsers
+    inputTypeName: InsertUsersInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: mongo
+      dataConnectorObjectType: InsertUsers
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: InsertUsers
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - n
+          - ok
+
+---
+kind: Command
+version: v1
+definition:
+  name: InsertUsers
+  outputType: InsertUsers!
+  arguments:
+    - name: email
+      type: String!
+    - name: name
+      type: String!
+    - name: userId
+      type: Int!
+  source:
+    dataConnectorName: mongo
+    dataConnectorCommand:
+      procedure: insertUsers
+  graphql:
+    rootFieldName: insertUsers
+    rootFieldKind: Mutation
+  description: Insert a new Users document
+
+---
+kind: CommandPermissions
+version: v1
+definition:
+  commandName: InsertUsers
+  permissions:
+    - role: admin
+      allowExecution: true
+

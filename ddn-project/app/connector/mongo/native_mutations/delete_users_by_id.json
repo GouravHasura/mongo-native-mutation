@@ -1,0 +1,41 @@
+{
+  "name": "deleteUsersById",
+  "description": "Delete a Users document by ID",
+  "resultType": {
+    "object": "DeleteUsers"
+  },
+  "arguments": {
+    "id": {
+      "type": {
+        "scalar": "objectId"
+      }
+    }
+  },
+  "objectTypes": {
+    "DeleteUsers": {
+      "fields": {
+        "ok": {
+          "type": {
+            "scalar": "int"
+          }
+        },
+        "n": {
+          "type": {
+            "scalar": "int"
+          }
+        }
+      }
+    }
+  },
+  "command": {
+    "delete": "Users",
+    "deletes": [
+      {
+        "q": {
+          "_id": "{{ id }}"
+        },
+        "limit": 0
+      }
+    ]
+  }
+}

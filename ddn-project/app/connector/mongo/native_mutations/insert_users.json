@@ -1,0 +1,50 @@
+{
+  "name": "insertUsers",
+  "description": "Insert a new Users document",
+  "resultType": {
+    "object": "InsertUsers"
+  },
+  "arguments": {
+    "email": {
+      "type": {
+        "scalar": "string"
+      }
+    },
+    "name": {
+      "type": {
+        "scalar": "string"
+      }
+    },
+    "userId": {
+      "type": {
+        "scalar": "int"
+      }
+    }
+  },
+  "objectTypes": {
+    "InsertUsers": {
+      "fields": {
+        "ok": {
+          "type": {
+            "scalar": "int"
+          }
+        },
+        "n": {
+          "type": {
+            "scalar": "int"
+          }
+        }
+      }
+    }
+  },
+  "command": {
+    "insert": "Users",
+    "documents": [
+      {
+        "Email": "{{ email }}",
+        "Name": "{{ name }}",
+        "UserId": "{{ userId }}"
+      }
+    ]
+  }
+}

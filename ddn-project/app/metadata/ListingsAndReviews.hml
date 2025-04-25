@@ -1,0 +1,1407 @@
+---
+kind: ObjectType
+version: v1
+definition:
+  name: ListingsAndReviewsAddressLocation
+  fields:
+    - name: coordinates
+      type: "[Double!]"
+    - name: isLocationExact
+      type: Bool
+    - name: type
+      type: String
+  graphql:
+    typeName: ListingsAndReviewsAddressLocation
+    inputTypeName: ListingsAndReviewsAddressLocationInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: mongo
+      dataConnectorObjectType: listingsAndReviews_address_location
+      fieldMapping:
+        coordinates:
+          column:
+            name: coordinates
+        isLocationExact:
+          column:
+            name: is_location_exact
+        type:
+          column:
+            name: type
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: ListingsAndReviewsAddressLocation
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - coordinates
+          - isLocationExact
+          - type
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: ListingsAndReviewsAddress
+  fields:
+    - name: country
+      type: String
+    - name: countryCode
+      type: String
+    - name: governmentArea
+      type: String
+    - name: location
+      type: ListingsAndReviewsAddressLocation
+    - name: market
+      type: String
+    - name: street
+      type: String
+    - name: suburb
+      type: String
+  graphql:
+    typeName: ListingsAndReviewsAddress
+    inputTypeName: ListingsAndReviewsAddressInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: mongo
+      dataConnectorObjectType: listingsAndReviews_address
+      fieldMapping:
+        country:
+          column:
+            name: country
+        countryCode:
+          column:
+            name: country_code
+        governmentArea:
+          column:
+            name: government_area
+        location:
+          column:
+            name: location
+        market:
+          column:
+            name: market
+        street:
+          column:
+            name: street
+        suburb:
+          column:
+            name: suburb
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: ListingsAndReviewsAddress
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - country
+          - countryCode
+          - governmentArea
+          - location
+          - market
+          - street
+          - suburb
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: ListingsAndReviewsAvailability
+  fields:
+    - name: availability30
+      type: Int
+    - name: availability60
+      type: Int
+    - name: availability90
+      type: Int
+    - name: availability365
+      type: Int
+  graphql:
+    typeName: ListingsAndReviewsAvailability
+    inputTypeName: ListingsAndReviewsAvailabilityInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: mongo
+      dataConnectorObjectType: listingsAndReviews_availability
+      fieldMapping:
+        availability30:
+          column:
+            name: availability_30
+        availability60:
+          column:
+            name: availability_60
+        availability90:
+          column:
+            name: availability_90
+        availability365:
+          column:
+            name: availability_365
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: ListingsAndReviewsAvailability
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - availability30
+          - availability60
+          - availability90
+          - availability365
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: ListingsAndReviewsHost
+  fields:
+    - name: hostAbout
+      type: String
+    - name: hostHasProfilePic
+      type: Bool
+    - name: hostId
+      type: String
+    - name: hostIdentityVerified
+      type: Bool
+    - name: hostIsSuperhost
+      type: Bool
+    - name: hostListingsCount
+      type: Int
+    - name: hostLocation
+      type: String
+    - name: hostName
+      type: String
+    - name: hostNeighbourhood
+      type: String
+    - name: hostPictureUrl
+      type: String
+    - name: hostResponseRate
+      type: Int
+    - name: hostResponseTime
+      type: String
+    - name: hostThumbnailUrl
+      type: String
+    - name: hostTotalListingsCount
+      type: Int
+    - name: hostUrl
+      type: String
+    - name: hostVerifications
+      type: "[String!]"
+  graphql:
+    typeName: ListingsAndReviewsHost
+    inputTypeName: ListingsAndReviewsHostInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: mongo
+      dataConnectorObjectType: listingsAndReviews_host
+      fieldMapping:
+        hostAbout:
+          column:
+            name: host_about
+        hostHasProfilePic:
+          column:
+            name: host_has_profile_pic
+        hostId:
+          column:
+            name: host_id
+        hostIdentityVerified:
+          column:
+            name: host_identity_verified
+        hostIsSuperhost:
+          column:
+            name: host_is_superhost
+        hostListingsCount:
+          column:
+            name: host_listings_count
+        hostLocation:
+          column:
+            name: host_location
+        hostName:
+          column:
+            name: host_name
+        hostNeighbourhood:
+          column:
+            name: host_neighbourhood
+        hostPictureUrl:
+          column:
+            name: host_picture_url
+        hostResponseRate:
+          column:
+            name: host_response_rate
+        hostResponseTime:
+          column:
+            name: host_response_time
+        hostThumbnailUrl:
+          column:
+            name: host_thumbnail_url
+        hostTotalListingsCount:
+          column:
+            name: host_total_listings_count
+        hostUrl:
+          column:
+            name: host_url
+        hostVerifications:
+          column:
+            name: host_verifications
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: ListingsAndReviewsHost
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - hostAbout
+          - hostHasProfilePic
+          - hostId
+          - hostIdentityVerified
+          - hostIsSuperhost
+          - hostListingsCount
+          - hostLocation
+          - hostName
+          - hostNeighbourhood
+          - hostPictureUrl
+          - hostResponseRate
+          - hostResponseTime
+          - hostThumbnailUrl
+          - hostTotalListingsCount
+          - hostUrl
+          - hostVerifications
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: ListingsAndReviewsImages
+  fields:
+    - name: mediumUrl
+      type: String
+    - name: pictureUrl
+      type: String
+    - name: thumbnailUrl
+      type: String
+    - name: xlPictureUrl
+      type: String
+  graphql:
+    typeName: ListingsAndReviewsImages
+    inputTypeName: ListingsAndReviewsImagesInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: mongo
+      dataConnectorObjectType: listingsAndReviews_images
+      fieldMapping:
+        mediumUrl:
+          column:
+            name: medium_url
+        pictureUrl:
+          column:
+            name: picture_url
+        thumbnailUrl:
+          column:
+            name: thumbnail_url
+        xlPictureUrl:
+          column:
+            name: xl_picture_url
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: ListingsAndReviewsImages
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - mediumUrl
+          - pictureUrl
+          - thumbnailUrl
+          - xlPictureUrl
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: ListingsAndReviewsReviewScores
+  fields:
+    - name: reviewScoresAccuracy
+      type: Int
+    - name: reviewScoresCheckin
+      type: Int
+    - name: reviewScoresCleanliness
+      type: Int
+    - name: reviewScoresCommunication
+      type: Int
+    - name: reviewScoresLocation
+      type: Int
+    - name: reviewScoresRating
+      type: Int
+    - name: reviewScoresValue
+      type: Int
+  graphql:
+    typeName: ListingsAndReviewsReviewScores
+    inputTypeName: ListingsAndReviewsReviewScoresInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: mongo
+      dataConnectorObjectType: listingsAndReviews_review_scores
+      fieldMapping:
+        reviewScoresAccuracy:
+          column:
+            name: review_scores_accuracy
+        reviewScoresCheckin:
+          column:
+            name: review_scores_checkin
+        reviewScoresCleanliness:
+          column:
+            name: review_scores_cleanliness
+        reviewScoresCommunication:
+          column:
+            name: review_scores_communication
+        reviewScoresLocation:
+          column:
+            name: review_scores_location
+        reviewScoresRating:
+          column:
+            name: review_scores_rating
+        reviewScoresValue:
+          column:
+            name: review_scores_value
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: ListingsAndReviewsReviewScores
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - reviewScoresAccuracy
+          - reviewScoresCheckin
+          - reviewScoresCleanliness
+          - reviewScoresCommunication
+          - reviewScoresLocation
+          - reviewScoresRating
+          - reviewScoresValue
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: ListingsAndReviewsReviews
+  fields:
+    - name: id
+      type: String
+    - name: comments
+      type: String
+    - name: date
+      type: Date
+    - name: listingId
+      type: String
+    - name: reviewerId
+      type: String
+    - name: reviewerName
+      type: String
+  graphql:
+    typeName: ListingsAndReviewsReviews
+    inputTypeName: ListingsAndReviewsReviewsInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: mongo
+      dataConnectorObjectType: listingsAndReviews_reviews
+      fieldMapping:
+        id:
+          column:
+            name: _id
+        comments:
+          column:
+            name: comments
+        date:
+          column:
+            name: date
+        listingId:
+          column:
+            name: listing_id
+        reviewerId:
+          column:
+            name: reviewer_id
+        reviewerName:
+          column:
+            name: reviewer_name
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: ListingsAndReviewsReviews
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - id
+          - comments
+          - date
+          - listingId
+          - reviewerId
+          - reviewerName
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: ListingsAndReviews
+  fields:
+    - name: id
+      type: String!
+    - name: access
+      type: String
+    - name: accommodates
+      type: Int
+    - name: address
+      type: ListingsAndReviewsAddress
+    - name: amenities
+      type: "[String!]"
+    - name: availability
+      type: ListingsAndReviewsAvailability
+    - name: bathrooms
+      type: Decimal
+    - name: bedType
+      type: String
+    - name: bedrooms
+      type: Int
+    - name: beds
+      type: Int
+    - name: calendarLastScraped
+      type: Date
+    - name: cancellationPolicy
+      type: String
+    - name: cleaningFee
+      type: Decimal
+    - name: description
+      type: String
+    - name: extraPeople
+      type: Decimal
+    - name: firstReview
+      type: Date
+    - name: guestsIncluded
+      type: Decimal
+    - name: host
+      type: ListingsAndReviewsHost
+    - name: houseRules
+      type: String
+    - name: images
+      type: ListingsAndReviewsImages
+    - name: interaction
+      type: String
+    - name: lastReview
+      type: Date
+    - name: lastScraped
+      type: Date
+    - name: listingUrl
+      type: String
+    - name: maximumNights
+      type: String
+    - name: minimumNights
+      type: String
+    - name: monthlyPrice
+      type: Decimal
+    - name: name
+      type: String
+    - name: neighborhoodOverview
+      type: String
+    - name: notes
+      type: String
+    - name: numberOfReviews
+      type: Int
+    - name: price
+      type: Decimal
+    - name: propertyType
+      type: String
+    - name: reviewScores
+      type: ListingsAndReviewsReviewScores
+    - name: reviews
+      type: "[ListingsAndReviewsReviews!]"
+    - name: roomType
+      type: String
+    - name: securityDeposit
+      type: Decimal
+    - name: space
+      type: String
+    - name: summary
+      type: String
+    - name: transit
+      type: String
+    - name: weeklyPrice
+      type: Decimal
+    - name: reviewsPerMonth
+      type: Int
+  graphql:
+    typeName: ListingsAndReviews
+    inputTypeName: ListingsAndReviewsInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: mongo
+      dataConnectorObjectType: listingsAndReviews
+      fieldMapping:
+        id:
+          column:
+            name: _id
+        access:
+          column:
+            name: access
+        accommodates:
+          column:
+            name: accommodates
+        address:
+          column:
+            name: address
+        amenities:
+          column:
+            name: amenities
+        availability:
+          column:
+            name: availability
+        bathrooms:
+          column:
+            name: bathrooms
+        bedType:
+          column:
+            name: bed_type
+        bedrooms:
+          column:
+            name: bedrooms
+        beds:
+          column:
+            name: beds
+        calendarLastScraped:
+          column:
+            name: calendar_last_scraped
+        cancellationPolicy:
+          column:
+            name: cancellation_policy
+        cleaningFee:
+          column:
+            name: cleaning_fee
+        description:
+          column:
+            name: description
+        extraPeople:
+          column:
+            name: extra_people
+        firstReview:
+          column:
+            name: first_review
+        guestsIncluded:
+          column:
+            name: guests_included
+        host:
+          column:
+            name: host
+        houseRules:
+          column:
+            name: house_rules
+        images:
+          column:
+            name: images
+        interaction:
+          column:
+            name: interaction
+        lastReview:
+          column:
+            name: last_review
+        lastScraped:
+          column:
+            name: last_scraped
+        listingUrl:
+          column:
+            name: listing_url
+        maximumNights:
+          column:
+            name: maximum_nights
+        minimumNights:
+          column:
+            name: minimum_nights
+        monthlyPrice:
+          column:
+            name: monthly_price
+        name:
+          column:
+            name: name
+        neighborhoodOverview:
+          column:
+            name: neighborhood_overview
+        notes:
+          column:
+            name: notes
+        numberOfReviews:
+          column:
+            name: number_of_reviews
+        price:
+          column:
+            name: price
+        propertyType:
+          column:
+            name: property_type
+        reviewScores:
+          column:
+            name: review_scores
+        reviews:
+          column:
+            name: reviews
+        roomType:
+          column:
+            name: room_type
+        securityDeposit:
+          column:
+            name: security_deposit
+        space:
+          column:
+            name: space
+        summary:
+          column:
+            name: summary
+        transit:
+          column:
+            name: transit
+        weeklyPrice:
+          column:
+            name: weekly_price
+        reviewsPerMonth:
+          column:
+            name: reviews_per_month
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: ListingsAndReviews
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - id
+          - access
+          - accommodates
+          - address
+          - amenities
+          - availability
+          - bathrooms
+          - bedType
+          - bedrooms
+          - beds
+          - calendarLastScraped
+          - cancellationPolicy
+          - cleaningFee
+          - description
+          - extraPeople
+          - firstReview
+          - guestsIncluded
+          - host
+          - houseRules
+          - images
+          - interaction
+          - lastReview
+          - lastScraped
+          - listingUrl
+          - maximumNights
+          - minimumNights
+          - monthlyPrice
+          - name
+          - neighborhoodOverview
+          - notes
+          - numberOfReviews
+          - price
+          - propertyType
+          - reviewScores
+          - reviews
+          - roomType
+          - securityDeposit
+          - space
+          - summary
+          - transit
+          - weeklyPrice
+          - reviewsPerMonth
+
+---
+kind: BooleanExpressionType
+version: v1
+definition:
+  name: ListingsAndReviewsAddressLocationBoolExp
+  operand:
+    object:
+      type: ListingsAndReviewsAddressLocation
+      comparableFields:
+        - fieldName: isLocationExact
+          booleanExpressionType: BoolBoolExp
+        - fieldName: type
+          booleanExpressionType: StringBoolExp
+      comparableRelationships: []
+  logicalOperators:
+    enable: true
+  isNull:
+    enable: true
+  graphql:
+    typeName: ListingsAndReviewsAddressLocationBoolExp
+
+---
+kind: BooleanExpressionType
+version: v1
+definition:
+  name: ListingsAndReviewsAddressBoolExp
+  operand:
+    object:
+      type: ListingsAndReviewsAddress
+      comparableFields:
+        - fieldName: country
+          booleanExpressionType: StringBoolExp
+        - fieldName: countryCode
+          booleanExpressionType: StringBoolExp
+        - fieldName: governmentArea
+          booleanExpressionType: StringBoolExp
+        - fieldName: location
+          booleanExpressionType: ListingsAndReviewsAddressLocationBoolExp
+        - fieldName: market
+          booleanExpressionType: StringBoolExp
+        - fieldName: street
+          booleanExpressionType: StringBoolExp
+        - fieldName: suburb
+          booleanExpressionType: StringBoolExp
+      comparableRelationships: []
+  logicalOperators:
+    enable: true
+  isNull:
+    enable: true
+  graphql:
+    typeName: ListingsAndReviewsAddressBoolExp
+
+---
+kind: BooleanExpressionType
+version: v1
+definition:
+  name: ListingsAndReviewsAvailabilityBoolExp
+  operand:
+    object:
+      type: ListingsAndReviewsAvailability
+      comparableFields:
+        - fieldName: availability30
+          booleanExpressionType: IntBoolExp
+        - fieldName: availability60
+          booleanExpressionType: IntBoolExp
+        - fieldName: availability90
+          booleanExpressionType: IntBoolExp
+        - fieldName: availability365
+          booleanExpressionType: IntBoolExp
+      comparableRelationships: []
+  logicalOperators:
+    enable: true
+  isNull:
+    enable: true
+  graphql:
+    typeName: ListingsAndReviewsAvailabilityBoolExp
+
+---
+kind: BooleanExpressionType
+version: v1
+definition:
+  name: ListingsAndReviewsHostBoolExp
+  operand:
+    object:
+      type: ListingsAndReviewsHost
+      comparableFields:
+        - fieldName: hostAbout
+          booleanExpressionType: StringBoolExp
+        - fieldName: hostHasProfilePic
+          booleanExpressionType: BoolBoolExp
+        - fieldName: hostId
+          booleanExpressionType: StringBoolExp
+        - fieldName: hostIdentityVerified
+          booleanExpressionType: BoolBoolExp
+        - fieldName: hostIsSuperhost
+          booleanExpressionType: BoolBoolExp
+        - fieldName: hostListingsCount
+          booleanExpressionType: IntBoolExp
+        - fieldName: hostLocation
+          booleanExpressionType: StringBoolExp
+        - fieldName: hostName
+          booleanExpressionType: StringBoolExp
+        - fieldName: hostNeighbourhood
+          booleanExpressionType: StringBoolExp
+        - fieldName: hostPictureUrl
+          booleanExpressionType: StringBoolExp
+        - fieldName: hostResponseRate
+          booleanExpressionType: IntBoolExp
+        - fieldName: hostResponseTime
+          booleanExpressionType: StringBoolExp
+        - fieldName: hostThumbnailUrl
+          booleanExpressionType: StringBoolExp
+        - fieldName: hostTotalListingsCount
+          booleanExpressionType: IntBoolExp
+        - fieldName: hostUrl
+          booleanExpressionType: StringBoolExp
+      comparableRelationships: []
+  logicalOperators:
+    enable: true
+  isNull:
+    enable: true
+  graphql:
+    typeName: ListingsAndReviewsHostBoolExp
+
+---
+kind: BooleanExpressionType
+version: v1
+definition:
+  name: ListingsAndReviewsImagesBoolExp
+  operand:
+    object:
+      type: ListingsAndReviewsImages
+      comparableFields:
+        - fieldName: mediumUrl
+          booleanExpressionType: StringBoolExp
+        - fieldName: pictureUrl
+          booleanExpressionType: StringBoolExp
+        - fieldName: thumbnailUrl
+          booleanExpressionType: StringBoolExp
+        - fieldName: xlPictureUrl
+          booleanExpressionType: StringBoolExp
+      comparableRelationships: []
+  logicalOperators:
+    enable: true
+  isNull:
+    enable: true
+  graphql:
+    typeName: ListingsAndReviewsImagesBoolExp
+
+---
+kind: BooleanExpressionType
+version: v1
+definition:
+  name: ListingsAndReviewsReviewScoresBoolExp
+  operand:
+    object:
+      type: ListingsAndReviewsReviewScores
+      comparableFields:
+        - fieldName: reviewScoresAccuracy
+          booleanExpressionType: IntBoolExp
+        - fieldName: reviewScoresCheckin
+          booleanExpressionType: IntBoolExp
+        - fieldName: reviewScoresCleanliness
+          booleanExpressionType: IntBoolExp
+        - fieldName: reviewScoresCommunication
+          booleanExpressionType: IntBoolExp
+        - fieldName: reviewScoresLocation
+          booleanExpressionType: IntBoolExp
+        - fieldName: reviewScoresRating
+          booleanExpressionType: IntBoolExp
+        - fieldName: reviewScoresValue
+          booleanExpressionType: IntBoolExp
+      comparableRelationships: []
+  logicalOperators:
+    enable: true
+  isNull:
+    enable: true
+  graphql:
+    typeName: ListingsAndReviewsReviewScoresBoolExp
+
+---
+kind: BooleanExpressionType
+version: v1
+definition:
+  name: ListingsAndReviewsReviewsBoolExp
+  operand:
+    object:
+      type: ListingsAndReviewsReviews
+      comparableFields:
+        - fieldName: id
+          booleanExpressionType: StringBoolExp
+        - fieldName: comments
+          booleanExpressionType: StringBoolExp
+        - fieldName: date
+          booleanExpressionType: DateBoolExp
+        - fieldName: listingId
+          booleanExpressionType: StringBoolExp
+        - fieldName: reviewerId
+          booleanExpressionType: StringBoolExp
+        - fieldName: reviewerName
+          booleanExpressionType: StringBoolExp
+      comparableRelationships: []
+  logicalOperators:
+    enable: true
+  isNull:
+    enable: true
+  graphql:
+    typeName: ListingsAndReviewsReviewsBoolExp
+
+---
+kind: BooleanExpressionType
+version: v1
+definition:
+  name: ListingsAndReviewsBoolExp
+  operand:
+    object:
+      type: ListingsAndReviews
+      comparableFields:
+        - fieldName: id
+          booleanExpressionType: StringBoolExp
+        - fieldName: access
+          booleanExpressionType: StringBoolExp
+        - fieldName: accommodates
+          booleanExpressionType: IntBoolExp
+        - fieldName: address
+          booleanExpressionType: ListingsAndReviewsAddressBoolExp
+        - fieldName: availability
+          booleanExpressionType: ListingsAndReviewsAvailabilityBoolExp
+        - fieldName: bathrooms
+          booleanExpressionType: DecimalBoolExp
+        - fieldName: bedType
+          booleanExpressionType: StringBoolExp
+        - fieldName: bedrooms
+          booleanExpressionType: IntBoolExp
+        - fieldName: beds
+          booleanExpressionType: IntBoolExp
+        - fieldName: calendarLastScraped
+          booleanExpressionType: DateBoolExp
+        - fieldName: cancellationPolicy
+          booleanExpressionType: StringBoolExp
+        - fieldName: cleaningFee
+          booleanExpressionType: DecimalBoolExp
+        - fieldName: description
+          booleanExpressionType: StringBoolExp
+        - fieldName: extraPeople
+          booleanExpressionType: DecimalBoolExp
+        - fieldName: firstReview
+          booleanExpressionType: DateBoolExp
+        - fieldName: guestsIncluded
+          booleanExpressionType: DecimalBoolExp
+        - fieldName: host
+          booleanExpressionType: ListingsAndReviewsHostBoolExp
+        - fieldName: houseRules
+          booleanExpressionType: StringBoolExp
+        - fieldName: images
+          booleanExpressionType: ListingsAndReviewsImagesBoolExp
+        - fieldName: interaction
+          booleanExpressionType: StringBoolExp
+        - fieldName: lastReview
+          booleanExpressionType: DateBoolExp
+        - fieldName: lastScraped
+          booleanExpressionType: DateBoolExp
+        - fieldName: listingUrl
+          booleanExpressionType: StringBoolExp
+        - fieldName: maximumNights
+          booleanExpressionType: StringBoolExp
+        - fieldName: minimumNights
+          booleanExpressionType: StringBoolExp
+        - fieldName: monthlyPrice
+          booleanExpressionType: DecimalBoolExp
+        - fieldName: name
+          booleanExpressionType: StringBoolExp
+        - fieldName: neighborhoodOverview
+          booleanExpressionType: StringBoolExp
+        - fieldName: notes
+          booleanExpressionType: StringBoolExp
+        - fieldName: numberOfReviews
+          booleanExpressionType: IntBoolExp
+        - fieldName: price
+          booleanExpressionType: DecimalBoolExp
+        - fieldName: propertyType
+          booleanExpressionType: StringBoolExp
+        - fieldName: reviewScores
+          booleanExpressionType: ListingsAndReviewsReviewScoresBoolExp
+        - fieldName: reviews
+          booleanExpressionType: ListingsAndReviewsReviewsBoolExp
+        - fieldName: roomType
+          booleanExpressionType: StringBoolExp
+        - fieldName: securityDeposit
+          booleanExpressionType: DecimalBoolExp
+        - fieldName: space
+          booleanExpressionType: StringBoolExp
+        - fieldName: summary
+          booleanExpressionType: StringBoolExp
+        - fieldName: transit
+          booleanExpressionType: StringBoolExp
+        - fieldName: weeklyPrice
+          booleanExpressionType: DecimalBoolExp
+        - fieldName: reviewsPerMonth
+          booleanExpressionType: IntBoolExp
+      comparableRelationships: []
+  logicalOperators:
+    enable: true
+  isNull:
+    enable: true
+  graphql:
+    typeName: ListingsAndReviewsBoolExp
+
+---
+kind: AggregateExpression
+version: v1
+definition:
+  name: ListingsAndReviewsAggExp
+  operand:
+    object:
+      aggregatedType: ListingsAndReviews
+      aggregatableFields:
+        - fieldName: id
+          aggregateExpression: StringAggExp
+        - fieldName: access
+          aggregateExpression: StringAggExp
+        - fieldName: accommodates
+          aggregateExpression: IntAggExp
+        - fieldName: bathrooms
+          aggregateExpression: DecimalAggExp
+        - fieldName: bedType
+          aggregateExpression: StringAggExp
+        - fieldName: bedrooms
+          aggregateExpression: IntAggExp
+        - fieldName: beds
+          aggregateExpression: IntAggExp
+        - fieldName: calendarLastScraped
+          aggregateExpression: DateAggExp
+        - fieldName: cancellationPolicy
+          aggregateExpression: StringAggExp
+        - fieldName: cleaningFee
+          aggregateExpression: DecimalAggExp
+        - fieldName: description
+          aggregateExpression: StringAggExp
+        - fieldName: extraPeople
+          aggregateExpression: DecimalAggExp
+        - fieldName: firstReview
+          aggregateExpression: DateAggExp
+        - fieldName: guestsIncluded
+          aggregateExpression: DecimalAggExp
+        - fieldName: houseRules
+          aggregateExpression: StringAggExp
+        - fieldName: interaction
+          aggregateExpression: StringAggExp
+        - fieldName: lastReview
+          aggregateExpression: DateAggExp
+        - fieldName: lastScraped
+          aggregateExpression: DateAggExp
+        - fieldName: listingUrl
+          aggregateExpression: StringAggExp
+        - fieldName: maximumNights
+          aggregateExpression: StringAggExp
+        - fieldName: minimumNights
+          aggregateExpression: StringAggExp
+        - fieldName: monthlyPrice
+          aggregateExpression: DecimalAggExp
+        - fieldName: name
+          aggregateExpression: StringAggExp
+        - fieldName: neighborhoodOverview
+          aggregateExpression: StringAggExp
+        - fieldName: notes
+          aggregateExpression: StringAggExp
+        - fieldName: numberOfReviews
+          aggregateExpression: IntAggExp
+        - fieldName: price
+          aggregateExpression: DecimalAggExp
+        - fieldName: propertyType
+          aggregateExpression: StringAggExp
+        - fieldName: roomType
+          aggregateExpression: StringAggExp
+        - fieldName: securityDeposit
+          aggregateExpression: DecimalAggExp
+        - fieldName: space
+          aggregateExpression: StringAggExp
+        - fieldName: summary
+          aggregateExpression: StringAggExp
+        - fieldName: transit
+          aggregateExpression: StringAggExp
+        - fieldName: weeklyPrice
+          aggregateExpression: DecimalAggExp
+        - fieldName: reviewsPerMonth
+          aggregateExpression: IntAggExp
+  count:
+    enable: true
+  graphql:
+    selectTypeName: ListingsAndReviewsAggExp
+
+---
+kind: OrderByExpression
+version: v1
+definition:
+  name: ListingsAndReviewsAddressLocationOrderByExp
+  operand:
+    object:
+      orderedType: ListingsAndReviewsAddressLocation
+      orderableFields:
+        - fieldName: isLocationExact
+          orderByExpression: BoolOrderByExp
+        - fieldName: type
+          orderByExpression: StringOrderByExp
+      orderableRelationships: []
+  graphql:
+    expressionTypeName: ListingsAndReviewsAddressLocationOrderByExp
+
+---
+kind: OrderByExpression
+version: v1
+definition:
+  name: ListingsAndReviewsAddressOrderByExp
+  operand:
+    object:
+      orderedType: ListingsAndReviewsAddress
+      orderableFields:
+        - fieldName: country
+          orderByExpression: StringOrderByExp
+        - fieldName: countryCode
+          orderByExpression: StringOrderByExp
+        - fieldName: governmentArea
+          orderByExpression: StringOrderByExp
+        - fieldName: location
+          orderByExpression: ListingsAndReviewsAddressLocationOrderByExp
+        - fieldName: market
+          orderByExpression: StringOrderByExp
+        - fieldName: street
+          orderByExpression: StringOrderByExp
+        - fieldName: suburb
+          orderByExpression: StringOrderByExp
+      orderableRelationships: []
+  graphql:
+    expressionTypeName: ListingsAndReviewsAddressOrderByExp
+
+---
+kind: OrderByExpression
+version: v1
+definition:
+  name: ListingsAndReviewsAvailabilityOrderByExp
+  operand:
+    object:
+      orderedType: ListingsAndReviewsAvailability
+      orderableFields:
+        - fieldName: availability30
+          orderByExpression: IntOrderByExp
+        - fieldName: availability60
+          orderByExpression: IntOrderByExp
+        - fieldName: availability90
+          orderByExpression: IntOrderByExp
+        - fieldName: availability365
+          orderByExpression: IntOrderByExp
+      orderableRelationships: []
+  graphql:
+    expressionTypeName: ListingsAndReviewsAvailabilityOrderByExp
+
+---
+kind: OrderByExpression
+version: v1
+definition:
+  name: ListingsAndReviewsHostOrderByExp
+  operand:
+    object:
+      orderedType: ListingsAndReviewsHost
+      orderableFields:
+        - fieldName: hostAbout
+          orderByExpression: StringOrderByExp
+        - fieldName: hostHasProfilePic
+          orderByExpression: BoolOrderByExp
+        - fieldName: hostId
+          orderByExpression: StringOrderByExp
+        - fieldName: hostIdentityVerified
+          orderByExpression: BoolOrderByExp
+        - fieldName: hostIsSuperhost
+          orderByExpression: BoolOrderByExp
+        - fieldName: hostListingsCount
+          orderByExpression: IntOrderByExp
+        - fieldName: hostLocation
+          orderByExpression: StringOrderByExp
+        - fieldName: hostName
+          orderByExpression: StringOrderByExp
+        - fieldName: hostNeighbourhood
+          orderByExpression: StringOrderByExp
+        - fieldName: hostPictureUrl
+          orderByExpression: StringOrderByExp
+        - fieldName: hostResponseRate
+          orderByExpression: IntOrderByExp
+        - fieldName: hostResponseTime
+          orderByExpression: StringOrderByExp
+        - fieldName: hostThumbnailUrl
+          orderByExpression: StringOrderByExp
+        - fieldName: hostTotalListingsCount
+          orderByExpression: IntOrderByExp
+        - fieldName: hostUrl
+          orderByExpression: StringOrderByExp
+      orderableRelationships: []
+  graphql:
+    expressionTypeName: ListingsAndReviewsHostOrderByExp
+
+---
+kind: OrderByExpression
+version: v1
+definition:
+  name: ListingsAndReviewsImagesOrderByExp
+  operand:
+    object:
+      orderedType: ListingsAndReviewsImages
+      orderableFields:
+        - fieldName: mediumUrl
+          orderByExpression: StringOrderByExp
+        - fieldName: pictureUrl
+          orderByExpression: StringOrderByExp
+        - fieldName: thumbnailUrl
+          orderByExpression: StringOrderByExp
+        - fieldName: xlPictureUrl
+          orderByExpression: StringOrderByExp
+      orderableRelationships: []
+  graphql:
+    expressionTypeName: ListingsAndReviewsImagesOrderByExp
+
+---
+kind: OrderByExpression
+version: v1
+definition:
+  name: ListingsAndReviewsReviewScoresOrderByExp
+  operand:
+    object:
+      orderedType: ListingsAndReviewsReviewScores
+      orderableFields:
+        - fieldName: reviewScoresAccuracy
+          orderByExpression: IntOrderByExp
+        - fieldName: reviewScoresCheckin
+          orderByExpression: IntOrderByExp
+        - fieldName: reviewScoresCleanliness
+          orderByExpression: IntOrderByExp
+        - fieldName: reviewScoresCommunication
+          orderByExpression: IntOrderByExp
+        - fieldName: reviewScoresLocation
+          orderByExpression: IntOrderByExp
+        - fieldName: reviewScoresRating
+          orderByExpression: IntOrderByExp
+        - fieldName: reviewScoresValue
+          orderByExpression: IntOrderByExp
+      orderableRelationships: []
+  graphql:
+    expressionTypeName: ListingsAndReviewsReviewScoresOrderByExp
+
+---
+kind: OrderByExpression
+version: v1
+definition:
+  name: ListingsAndReviewsOrderByExp
+  operand:
+    object:
+      orderedType: ListingsAndReviews
+      orderableFields:
+        - fieldName: id
+          orderByExpression: StringOrderByExp
+        - fieldName: access
+          orderByExpression: StringOrderByExp
+        - fieldName: accommodates
+          orderByExpression: IntOrderByExp
+        - fieldName: address
+          orderByExpression: ListingsAndReviewsAddressOrderByExp
+        - fieldName: availability
+          orderByExpression: ListingsAndReviewsAvailabilityOrderByExp
+        - fieldName: bathrooms
+          orderByExpression: DecimalOrderByExp
+        - fieldName: bedType
+          orderByExpression: StringOrderByExp
+        - fieldName: bedrooms
+          orderByExpression: IntOrderByExp
+        - fieldName: beds
+          orderByExpression: IntOrderByExp
+        - fieldName: calendarLastScraped
+          orderByExpression: DateOrderByExp
+        - fieldName: cancellationPolicy
+          orderByExpression: StringOrderByExp
+        - fieldName: cleaningFee
+          orderByExpression: DecimalOrderByExp
+        - fieldName: description
+          orderByExpression: StringOrderByExp
+        - fieldName: extraPeople
+          orderByExpression: DecimalOrderByExp
+        - fieldName: firstReview
+          orderByExpression: DateOrderByExp
+        - fieldName: guestsIncluded
+          orderByExpression: DecimalOrderByExp
+        - fieldName: host
+          orderByExpression: ListingsAndReviewsHostOrderByExp
+        - fieldName: houseRules
+          orderByExpression: StringOrderByExp
+        - fieldName: images
+          orderByExpression: ListingsAndReviewsImagesOrderByExp
+        - fieldName: interaction
+          orderByExpression: StringOrderByExp
+        - fieldName: lastReview
+          orderByExpression: DateOrderByExp
+        - fieldName: lastScraped
+          orderByExpression: DateOrderByExp
+        - fieldName: listingUrl
+          orderByExpression: StringOrderByExp
+        - fieldName: maximumNights
+          orderByExpression: StringOrderByExp
+        - fieldName: minimumNights
+          orderByExpression: StringOrderByExp
+        - fieldName: monthlyPrice
+          orderByExpression: DecimalOrderByExp
+        - fieldName: name
+          orderByExpression: StringOrderByExp
+        - fieldName: neighborhoodOverview
+          orderByExpression: StringOrderByExp
+        - fieldName: notes
+          orderByExpression: StringOrderByExp
+        - fieldName: numberOfReviews
+          orderByExpression: IntOrderByExp
+        - fieldName: price
+          orderByExpression: DecimalOrderByExp
+        - fieldName: propertyType
+          orderByExpression: StringOrderByExp
+        - fieldName: reviewScores
+          orderByExpression: ListingsAndReviewsReviewScoresOrderByExp
+        - fieldName: roomType
+          orderByExpression: StringOrderByExp
+        - fieldName: securityDeposit
+          orderByExpression: DecimalOrderByExp
+        - fieldName: space
+          orderByExpression: StringOrderByExp
+        - fieldName: summary
+          orderByExpression: StringOrderByExp
+        - fieldName: transit
+          orderByExpression: StringOrderByExp
+        - fieldName: weeklyPrice
+          orderByExpression: DecimalOrderByExp
+        - fieldName: reviewsPerMonth
+          orderByExpression: IntOrderByExp
+      orderableRelationships: []
+  graphql:
+    expressionTypeName: ListingsAndReviewsOrderByExp
+
+---
+kind: Model
+version: v2
+definition:
+  name: ListingsAndReviews
+  objectType: ListingsAndReviews
+  source:
+    dataConnectorName: mongo
+    collection: listingsAndReviews
+  filterExpressionType: ListingsAndReviewsBoolExp
+  aggregateExpression: ListingsAndReviewsAggExp
+  orderByExpression: ListingsAndReviewsOrderByExp
+  graphql:
+    selectMany:
+      queryRootField: listingsAndReviews
+      subscription:
+        rootField: listingsAndReviews
+    selectUniques:
+      - queryRootField: listingsAndReviewsById
+        uniqueIdentifier:
+          - id
+        subscription:
+          rootField: listingsAndReviewsById
+    filterInputTypeName: ListingsAndReviewsFilterInput
+    aggregate:
+      queryRootField: listingsAndReviewsAggregate
+      subscription:
+        rootField: listingsAndReviewsAggregate
+
+---
+kind: ModelPermissions
+version: v1
+definition:
+  modelName: ListingsAndReviews
+  permissions:
+    - role: admin
+      select:
+        filter: null
+        allowSubscriptions: true
+

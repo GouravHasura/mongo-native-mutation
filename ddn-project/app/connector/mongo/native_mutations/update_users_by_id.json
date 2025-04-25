@@ -1,0 +1,68 @@
+{
+  "name": "updateUsersById",
+  "description": "Update a Users document by ID",
+  "resultType": {
+    "object": "UpdateUsers"
+  },
+  "arguments": {
+    "id": {
+      "type": {
+        "scalar": "objectId"
+      }
+    },
+    "email": {
+      "type": {
+        "nullable": {
+          "scalar": "string"
+        }
+      }
+    },
+    "name": {
+      "type": {
+        "nullable": {
+          "scalar": "string"
+        }
+      }
+    },
+    "userId": {
+      "type": {
+        "nullable": {
+          "scalar": "int"
+        }
+      }
+    }
+  },
+  "objectTypes": {
+    "UpdateUsers": {
+      "fields": {
+        "ok": {
+          "type": {
+            "scalar": "int"
+          }
+        },
+        "n": {
+          "type": {
+            "scalar": "int"
+          }
+        }
+      }
+    }
+  },
+  "command": {
+    "update": "Users",
+    "updates": [
+      {
+        "q": {
+          "_id": "{{ id }}"
+        },
+        "u": {
+          "$set": {
+            "Email": "{{ email }}",
+            "Name": "{{ name }}",
+            "UserId": "{{ userId }}"
+          }
+        }
+      }
+    ]
+  }
+}

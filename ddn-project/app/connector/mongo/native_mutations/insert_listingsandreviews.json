@@ -1,0 +1,243 @@
+{
+  "name": "insertlistingsAndReviews",
+  "description": "Insert a new listingsAndReviews document",
+  "resultType": {
+    "object": "InsertlistingsAndReviews"
+  },
+  "arguments": {
+    "access": {
+      "type": {
+        "scalar": "string"
+      }
+    },
+    "accommodates": {
+      "type": {
+        "scalar": "int"
+      }
+    },
+    "bathrooms": {
+      "type": {
+        "scalar": "decimal"
+      }
+    },
+    "bed_type": {
+      "type": {
+        "scalar": "string"
+      }
+    },
+    "bedrooms": {
+      "type": {
+        "scalar": "int"
+      }
+    },
+    "beds": {
+      "type": {
+        "scalar": "int"
+      }
+    },
+    "calendar_last_scraped": {
+      "type": {
+        "scalar": "date"
+      }
+    },
+    "cancellation_policy": {
+      "type": {
+        "scalar": "string"
+      }
+    },
+    "cleaning_fee": {
+      "type": {
+        "scalar": "decimal"
+      }
+    },
+    "description": {
+      "type": {
+        "scalar": "string"
+      }
+    },
+    "extra_people": {
+      "type": {
+        "scalar": "decimal"
+      }
+    },
+    "first_review": {
+      "type": {
+        "scalar": "date"
+      }
+    },
+    "guests_included": {
+      "type": {
+        "scalar": "decimal"
+      }
+    },
+    "house_rules": {
+      "type": {
+        "scalar": "string"
+      }
+    },
+    "interaction": {
+      "type": {
+        "scalar": "string"
+      }
+    },
+    "last_review": {
+      "type": {
+        "scalar": "date"
+      }
+    },
+    "last_scraped": {
+      "type": {
+        "scalar": "date"
+      }
+    },
+    "listing_url": {
+      "type": {
+        "scalar": "string"
+      }
+    },
+    "maximum_nights": {
+      "type": {
+        "scalar": "string"
+      }
+    },
+    "minimum_nights": {
+      "type": {
+        "scalar": "string"
+      }
+    },
+    "monthly_price": {
+      "type": {
+        "scalar": "decimal"
+      }
+    },
+    "name": {
+      "type": {
+        "scalar": "string"
+      }
+    },
+    "neighborhood_overview": {
+      "type": {
+        "scalar": "string"
+      }
+    },
+    "notes": {
+      "type": {
+        "scalar": "string"
+      }
+    },
+    "number_of_reviews": {
+      "type": {
+        "scalar": "int"
+      }
+    },
+    "price": {
+      "type": {
+        "scalar": "decimal"
+      }
+    },
+    "property_type": {
+      "type": {
+        "scalar": "string"
+      }
+    },
+    "reviews_per_month": {
+      "type": {
+        "scalar": "int"
+      }
+    },
+    "room_type": {
+      "type": {
+        "scalar": "string"
+      }
+    },
+    "security_deposit": {
+      "type": {
+        "scalar": "decimal"
+      }
+    },
+    "space": {
+      "type": {
+        "scalar": "string"
+      }
+    },
+    "summary": {
+      "type": {
+        "scalar": "string"
+      }
+    },
+    "transit": {
+      "type": {
+        "scalar": "string"
+      }
+    },
+    "weekly_price": {
+      "type": {
+        "scalar": "decimal"
+      }
+    }
+  },
+  "objectTypes": {
+    "InsertlistingsAndReviews": {
+      "fields": {
+        "ok": {
+          "type": {
+            "scalar": "int"
+          }
+        },
+        "n": {
+          "type": {
+            "scalar": "int"
+          }
+        }
+      }
+    }
+  },
+  "command": {
+    "insert": "listingsAndReviews",
+    "documents": [
+      {
+        "access": "{{ access }}",
+        "accommodates": "{{ accommodates }}",
+        "address": "{{ address }}",
+        "amenities": "{{ amenities }}",
+        "availability": "{{ availability }}",
+        "bathrooms": "{{ bathrooms }}",
+        "bed_type": "{{ bed_type }}",
+        "bedrooms": "{{ bedrooms }}",
+        "beds": "{{ beds }}",
+        "calendar_last_scraped": "{{ calendar_last_scraped }}",
+        "cancellation_policy": "{{ cancellation_policy }}",
+        "cleaning_fee": "{{ cleaning_fee }}",
+        "description": "{{ description }}",
+        "extra_people": "{{ extra_people }}",
+        "first_review": "{{ first_review }}",
+        "guests_included": "{{ guests_included }}",
+        "host": "{{ host }}",
+        "house_rules": "{{ house_rules }}",
+        "images": "{{ images }}",
+        "interaction": "{{ interaction }}",
+        "last_review": "{{ last_review }}",
+        "last_scraped": "{{ last_scraped }}",
+        "listing_url": "{{ listing_url }}",
+        "maximum_nights": "{{ maximum_nights }}",
+        "minimum_nights": "{{ minimum_nights }}",
+        "monthly_price": "{{ monthly_price }}",
+        "name": "{{ name }}",
+        "neighborhood_overview": "{{ neighborhood_overview }}",
+        "notes": "{{ notes }}",
+        "number_of_reviews": "{{ number_of_reviews }}",
+        "price": "{{ price }}",
+        "property_type": "{{ property_type }}",
+        "review_scores": "{{ review_scores }}",
+        "reviews": "{{ reviews }}",
+        "reviews_per_month": "{{ reviews_per_month }}",
+        "room_type": "{{ room_type }}",
+        "security_deposit": "{{ security_deposit }}",
+        "space": "{{ space }}",
+        "summary": "{{ summary }}",
+        "transit": "{{ transit }}",
+        "weekly_price": "{{ weekly_price }}"
+      }
+    ]
+  }
+}
