@@ -12,7 +12,21 @@ python3 -m scripts.mongo_mutations.mutations --schema-dir /ddn-project/app/conne
 ```
 
 6. Re run the introspection
-7. Create a supergraph build
+
+```
+ddn connector introsepct mongo
+```
+
+
+7. Add models
+
+```
+ddn model add my_connector '*'
+ddn command add my_connector '*'
+ddn relationship add my_connector '*'
+```
+
+8. Create a supergraph build
 
 ```
 ddn supergraph build create
