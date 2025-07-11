@@ -14,7 +14,7 @@ python3 -m scripts.mongo_mutations.mutations --schema-dir /ddn-project/app/conne
 6. Re run the introspection
 
 ```
-ddn connector introsepct mongo
+ddn connector introspect mongo
 ```
 
 
