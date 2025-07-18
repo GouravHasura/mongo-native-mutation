@@ -1,0 +1,77 @@
+setup-scripts:
+  bash: cd scripts && npm install
+  powershell: cd scripts; npm install
+generate-schema:
+  bash: |
+    # Check if required environment variables are set
+    if [[ -z "$INPUT_SCHEMA" ]]; then
+      echo "Error: INPUT_SCHEMA environment variable is required"
+      echo "Usage: INPUT_SCHEMA=<_input_schema_path> OUTPUT_SCHEMA=<output_schema_path> ddn run generate-schema"
+      echo "Example: INPUT_SCHEMA=schema OUTPUT_SCHEMA=app/connector/mongo/schema ddn run generate-schema"
+      exit 1
+    fi
+
+    if [[ -z "$OUTPUT_SCHEMA" ]]; then
+      echo "Error: OUTPUT_SCHEMA environment variable is required"
+      echo "Usage: INPUT_SCHEMA=<_input_schema_path> OUTPUT_SCHEMA=<output_schema_path> ddn run generate-schema"
+      echo "Example: INPUT_SCHEMA=schema OUTPUT_SCHEMA=app/connector/mongo/schema ddn run generate-schema"
+      exit 1
+    fi
+
+    # Run the npx tsx command with the provided arguments
+    npx tsx scripts/generate-schema.ts "$INPUT_SCHEMA" "$OUTPUT_SCHEMA"
+  powershell: |
+    # Check if required environment variables are set
+    if (-not $env:INPUT_SCHEMA) {
+      Write-Host "Error: INPUT_SCHEMA environment variable is required" -ForegroundColor Red
+      Write-Host "Usage: `$env:INPUT_SCHEMA='<input_schema_path>'; `$env:OUTPUT_SCHEMA='<output_schema_path>'; ddn run generate-schema"
+      Write-Host "Example: `$env:INPUT_SCHEMA='schema'; `$env:OUTPUT_SCHEMA='app/connector/mongo/schema'; ddn run generate-schema"
+      exit 1
+    }
+
+    if (-not $env:OUTPUT_SCHEMA) {
+      Write-Host "Error: OUTPUT_SCHEMA environment variable is required" -ForegroundColor Red
+      Write-Host "Usage: `$env:INPUT_SCHEMA='<input_schema_path>'; `$env:OUTPUT_SCHEMA='<output_schema_path>'; ddn run generate-schema"
+      Write-Host "Example: `$env:INPUT_SCHEMA='schema'; `$env:OUTPUT_SCHEMA='app/connector/mongo/schema'; ddn run generate-schema"
+      exit 1
+    }
+
+    # Run the npx tsx command with the provided arguments
+    npx tsx scripts/generate-schema.ts $env:INPUT_SCHEMA $env:OUTPUT_SCHEMA
+generate-mutations:
+  bash: |
+    # Check if required environment variables are set
+    if [[ -z "$SCHEMA" ]]; then
+      echo "Error: SCHEMA environment variable is required"
+      echo "Usage: SCHEMA=<schema_path> OUTPUT=<output_path> ddn run generate-mutations"
+      echo "Example: SCHEMA=../app/connector/mongo/schema OUTPUT=../app/connector/mongots/functions.ts ddn run generate-mutations"
+      exit 1
+    fi
+
+    if [[ -z "$OUTPUT" ]]; then
+      echo "Error: OUTPUT environment variable is required"
+      echo "Usage: SCHEMA=<schema_path> OUTPUT=<output_path> ddn run generate-mutations"
+      echo "Example: SCHEMA=app/connector/mongo/schema OUTPUT=app/connector/mongots/functions.ts ddn run generate-mutations"
+      exit 1
+    fi
+
+    # Run the npx tsx command with the provided arguments
+    npx tsx scripts/generate-mutations.ts "$SCHEMA" "$OUTPUT"
+  powershell: |
+    # Check if required environment variables are set
+    if (-not $env:SCHEMA) {
+      Write-Host "Error: SCHEMA environment variable is required" -ForegroundColor Red
+      Write-Host "Usage: `$env:SCHEMA='<schema_path>'; `$env:OUTPUT='<output_path>'; ddn run generate-mutations"
+      Write-Host "Example: `$env:SCHEMA='app/connector/mongo/schema'; `$env:OUTPUT='app/connector/mongots/functions.ts'; ddn run generate-mutations"
+      exit 1
+    }
+
+    if (-not $env:OUTPUT) {
+      Write-Host "Error: OUTPUT environment variable is required" -ForegroundColor Red
+      Write-Host "Usage: `$env:SCHEMA='<schema_path>'; `$env:OUTPUT='<output_path>'; ddn run generate-mutations"
+      Write-Host "Example: `$env:SCHEMA='app/connector/mongo/schema'; `$env:OUTPUT='app/connector/mongots/functions.ts'; ddn run generate-mutations"
+      exit 1
+    }
+
+    # Run the npx tsx command with the provided arguments
+    npx tsx scripts/generate-mutations.ts $env:SCHEMA $env:OUTPUT
